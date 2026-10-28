@@ -12,6 +12,56 @@
             box-sizing: border-box;
         }
 
+        /* Светлая тема (по умолчанию) */
+        body.light-theme {
+            --bg: #ffffff;
+            --text: #1a202c;
+            --btn-bg: #f0f4fa;
+            --btn-hover: #e2e8f0;
+            --btn-active: #d0d8e4;
+            --panel-bg: #ffffff;
+            --panel-border: #e2e8f0;
+            --divider: #eef2f6;
+            --muted: #7a8a9e;
+            --label: #2d3748;
+            --soft: #4a5568;
+            --ctrl-bg: #f7fafc;
+            --ctrl-hover: #edf2f7;
+            --ctrl-active: #e2e8f0;
+            --ctrl-border: #d1d9e6;
+            --accent: #2b6cb0;
+            --on-accent: #ffffff;
+            --danger: #c53030;
+            --toast-bg: #1a202c;
+            --toast-text: #ffffff;
+            --backdrop: rgba(26, 32, 44, 0.45);
+        }
+
+        /* Тёмная тема */
+        body.dark-theme {
+            --bg: #1a1a2e;
+            --text: #e2e8f0;
+            --btn-bg: #2d2d44;
+            --btn-hover: #3d3d5a;
+            --btn-active: #4a4a6a;
+            --panel-bg: #16213e;
+            --panel-border: #2d2d44;
+            --divider: #2d2d44;
+            --muted: #8899bb;
+            --label: #c8d0dc;
+            --soft: #8899bb;
+            --ctrl-bg: #2d2d44;
+            --ctrl-hover: #3d3d5a;
+            --ctrl-active: #4a4a6a;
+            --ctrl-border: #3d3d5a;
+            --accent: #6b9fd4;
+            --on-accent: #1a1a2e;
+            --danger: #fc8181;
+            --toast-bg: #2d2d44;
+            --toast-text: #e2e8f0;
+            --backdrop: rgba(0, 0, 0, 0.6);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
@@ -19,234 +69,311 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            background: var(--bg);
+            color: var(--text);
             transition: background 0.3s, color 0.3s;
         }
 
-            /* Светлая тема (по умолчанию) */
-            body.light-theme {
-                background: #ffffff;
-                color: #1a202c;
+        button, input, textarea {
+            font-family: inherit;
+        }
+
+            button:focus-visible, input:focus-visible, textarea:focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 2px;
             }
 
-                body.light-theme .container {
-                    background: #ffffff;
-                }
-
-                body.light-theme .copy-btn {
-                    background: #f0f4fa;
-                    color: #1a202c;
-                }
-
-                    body.light-theme .copy-btn:hover {
-                        background: #e2e8f0;
-                    }
-
-                    body.light-theme .copy-btn:active {
-                        background: #d0d8e4;
-                    }
-
-                body.light-theme .control-panel {
-                    background: #ffffff;
-                    border-color: #e2e8f0;
-                }
-
-                    body.light-theme .control-panel .panel-title {
-                        color: #7a8a9e;
-                    }
-
-                    body.light-theme .control-panel .mode-group {
-                        border-bottom-color: #eef2f6;
-                    }
-
-                        body.light-theme .control-panel .mode-group label {
-                            color: #2d3748;
-                        }
-
-                            body.light-theme .control-panel .mode-group label:hover {
-                                background: #f0f4fa;
-                            }
-
-                    body.light-theme .control-panel .size-group .size-label {
-                        color: #4a5568;
-                    }
-
-                    body.light-theme .control-panel .size-btn {
-                        border-color: #d1d9e6;
-                        background: #f7fafc;
-                        color: #2d3748;
-                    }
-
-                        body.light-theme .control-panel .size-btn:hover {
-                            background: #edf2f7;
-                        }
-
-                        body.light-theme .control-panel .size-btn:active {
-                            background: #e2e8f0;
-                        }
-
-                    body.light-theme .control-panel .size-display {
-                        color: #2d3748;
-                    }
-
-                body.light-theme .theme-toggle {
-                    background: #f0f4fa;
-                    color: #1a202c;
-                    border-color: #d1d9e6;
-                }
-
-                    body.light-theme .theme-toggle:hover {
-                        background: #e2e8f0;
-                    }
-
-            /* Тёмная тема */
-            body.dark-theme {
-                background: #1a1a2e;
-                color: #e2e8f0;
-            }
-
-                body.dark-theme .container {
-                    background: #1a1a2e;
-                }
-
-                body.dark-theme .copy-btn {
-                    background: #2d2d44;
-                    color: #e2e8f0;
-                }
-
-                    body.dark-theme .copy-btn:hover {
-                        background: #3d3d5a;
-                    }
-
-                    body.dark-theme .copy-btn:active {
-                        background: #4a4a6a;
-                    }
-
-                body.dark-theme .control-panel {
-                    background: #16213e;
-                    border-color: #2d2d44;
-                }
-
-                    body.dark-theme .control-panel .panel-title {
-                        color: #8899bb;
-                    }
-
-                    body.dark-theme .control-panel .mode-group {
-                        border-bottom-color: #2d2d44;
-                    }
-
-                        body.dark-theme .control-panel .mode-group label {
-                            color: #c8d0dc;
-                        }
-
-                            body.dark-theme .control-panel .mode-group label:hover {
-                                background: #2d2d44;
-                            }
-
-                    body.dark-theme .control-panel .size-group .size-label {
-                        color: #8899bb;
-                    }
-
-                    body.dark-theme .control-panel .size-btn {
-                        border-color: #3d3d5a;
-                        background: #2d2d44;
-                        color: #c8d0dc;
-                    }
-
-                        body.dark-theme .control-panel .size-btn:hover {
-                            background: #3d3d5a;
-                        }
-
-                        body.dark-theme .control-panel .size-btn:active {
-                            background: #4a4a6a;
-                        }
-
-                    body.dark-theme .control-panel .size-display {
-                        color: #c8d0dc;
-                    }
-
-                body.dark-theme .theme-toggle {
-                    background: #2d2d44;
-                    color: #e2e8f0;
-                    border-color: #3d3d5a;
-                }
-
-                    body.dark-theme .theme-toggle:hover {
-                        background: #3d3d5a;
-                    }
-
-                body.dark-theme .toast {
-                    background: #2d2d44;
-                    color: #e2e8f0;
-                }
-
+        /* ---- Кнопки копирования ---- */
         .container {
-            max-width: 800px;
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 60px 0 40px 0;
+        }
+
+        .button-list {
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
-            padding: 40px 20px;
-            margin: 60px 0 40px 0;
-            transition: background 0.3s;
         }
 
-        .copy-btn {
+        .btn-row {
             width: 100%;
-            max-width: 500px;
-            padding: 14px 24px;
-            font-size: 17px;
-            font-weight: 500;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            position: relative;
+            gap: 6px;
         }
 
-            .copy-btn .label-short {
-                display: none;
+        .copy-btn {
+            width: var(--btn-width, 500px);
+            max-width: 100%;
+            min-width: 0;
+            min-height: var(--btn-height, 0px);
+            padding: 14px 24px;
+            font-size: var(--btn-font, 17px);
+            font-weight: 500;
+            text-align: center;
+            overflow-wrap: anywhere;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: var(--btn-bg);
+            color: var(--text);
+            transition: background 0.2s, color 0.2s, outline-color 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .copy-btn:hover {
+                background: var(--btn-hover);
             }
 
-            .copy-btn .label-medium {
-                display: none;
+            .copy-btn:active {
+                background: var(--btn-active);
             }
 
+            .copy-btn .label-short,
+            .copy-btn .label-medium,
             .copy-btn .label-full {
                 display: none;
             }
 
-        .mode-short .copy-btn .label-short {
-            display: inline;
-        }
-
-        .mode-medium .copy-btn .label-medium {
-            display: inline;
-        }
-
+        .mode-short .copy-btn .label-short,
+        .mode-medium .copy-btn .label-medium,
         .mode-full .copy-btn .label-full {
             display: inline;
         }
 
-        .control-panel {
+        .empty-hint {
+            color: var(--muted);
+            font-size: 15px;
+            text-align: center;
+        }
+
+        /* ---- Режим редактирования ---- */
+        .edit-banner {
+            display: none;
+            width: 100%;
+            max-width: 640px;
+            margin-bottom: 18px;
+            padding: 10px 14px;
+            border: 1px dashed var(--accent);
+            border-radius: 8px;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: var(--label);
+        }
+
+            .edit-banner span {
+                flex: 1 1 220px;
+            }
+
+        .editing .banner-edit,
+        .selecting .banner-select {
+            display: flex;
+        }
+
+            .banner-select .select-count {
+                flex: 0 0 auto;
+                font-weight: 600;
+            }
+
+            .ui-btn:disabled {
+                opacity: 0.45;
+                cursor: default;
+            }
+
+        /* ---- Выбор кнопок для перенумерации ---- */
+        .btn-row.selected .copy-btn {
+            position: relative;
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            background: var(--btn-active);
+        }
+
+            .btn-row.selected .copy-btn::after {
+                content: attr(data-preview);
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                min-width: 26px;
+                height: 22px;
+                padding: 0 7px;
+                border-radius: 11px;
+                background: var(--accent);
+                color: var(--on-accent);
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 22px;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+        .editing .copy-btn {
+            outline: 1px dashed var(--ctrl-border);
+            outline-offset: 2px;
+        }
+
+        .row-tools {
+            display: none;
+            grid-template-columns: repeat(2, 28px);
+            grid-auto-rows: 28px;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .editing .row-tools {
+            display: grid;
+        }
+
+        .tool-btn {
+            border: 1px solid var(--ctrl-border);
+            border-radius: 5px;
+            background: var(--ctrl-bg);
+            color: var(--label);
+            font-size: 14px;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+            .tool-btn:hover:not(:disabled) {
+                background: var(--ctrl-hover);
+            }
+
+            .tool-btn:disabled {
+                opacity: 0.35;
+                cursor: default;
+            }
+
+            .tool-btn.danger {
+                color: var(--danger);
+            }
+
+        .add-btn {
+            display: none;
+            width: var(--btn-width, 500px);
+            max-width: 100%;
+            margin-top: 12px;
+            padding: 12px;
+            border: 2px dashed var(--ctrl-border);
+            border-radius: 6px;
+            background: transparent;
+            color: var(--muted);
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+            .add-btn:hover {
+                background: var(--ctrl-hover);
+                color: var(--label);
+            }
+
+        .editing .add-btn {
+            display: block;
+        }
+
+        /* ---- Общие мелкие кнопки ---- */
+        .ui-btn {
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid var(--ctrl-border);
+            border-radius: 6px;
+            background: var(--ctrl-bg);
+            color: var(--label);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+            .ui-btn:hover {
+                background: var(--ctrl-hover);
+            }
+
+            .ui-btn:active {
+                background: var(--ctrl-active);
+            }
+
+            .ui-btn.primary,
+            .ui-btn.active {
+                background: var(--accent);
+                border-color: var(--accent);
+                color: var(--on-accent);
+            }
+
+            .ui-btn.danger {
+                color: var(--danger);
+            }
+
+        /* ---- Шестерёнка и панель настроек ---- */
+        .settings {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 12px 16px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .gear-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--panel-border);
+            background: var(--panel-bg);
+            color: var(--label);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+        }
+
+            .gear-btn:hover {
+                background: var(--ctrl-hover);
+            }
+
+            .gear-btn svg {
+                width: 22px;
+                height: 22px;
+                transition: transform 0.3s;
+            }
+
+            .gear-btn[aria-expanded="true"] svg {
+                transform: rotate(90deg);
+            }
+
+        .control-panel {
+            margin-top: 8px;
+            width: 230px;
+            max-height: calc(100vh - 92px);
+            overflow-y: auto;
+            padding: 12px 14px;
             display: flex;
             flex-direction: column;
             gap: 8px;
-            z-index: 1000;
-            min-width: 130px;
             border-radius: 8px;
+            border: 1px solid var(--panel-border);
+            background: var(--panel-bg);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            transition: background 0.3s, border-color 0.3s;
-            border: 1px solid;
         }
+
+            .control-panel[hidden] {
+                display: none;
+            }
 
             .control-panel .panel-title {
                 font-size: 11px;
@@ -254,17 +381,21 @@
                 letter-spacing: 0.5px;
                 font-weight: 600;
                 text-align: center;
-                margin-bottom: 2px;
-                transition: color 0.3s;
+                color: var(--muted);
+            }
+
+            .control-panel .panel-section {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                padding-top: 8px;
+                border-top: 1px solid var(--divider);
             }
 
             .control-panel .mode-group {
                 display: flex;
                 flex-direction: column;
                 gap: 4px;
-                padding-bottom: 8px;
-                border-bottom: 1px solid;
-                transition: border-color 0.3s;
             }
 
                 .control-panel .mode-group label {
@@ -275,84 +406,174 @@
                     cursor: pointer;
                     padding: 3px 6px;
                     border-radius: 4px;
-                    transition: background 0.15s, color 0.3s;
+                    color: var(--label);
+                    transition: background 0.15s;
                 }
 
+                    .control-panel .mode-group label:hover {
+                        background: var(--ctrl-hover);
+                    }
+
                 .control-panel .mode-group input[type="radio"] {
-                    accent-color: #2b6cb0;
+                    accent-color: var(--accent);
                     width: 15px;
                     height: 15px;
                     cursor: pointer;
                     flex-shrink: 0;
                 }
 
-        body.dark-theme .control-panel .mode-group input[type="radio"] {
-            accent-color: #6b9fd4;
-        }
-
-        .control-panel .size-group {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding-top: 4px;
-        }
-
-            .control-panel .size-group .size-label {
-                font-size: 12px;
-                font-weight: 500;
-                transition: color 0.3s;
+            .control-panel .size-group {
+                display: grid;
+                grid-template-columns: 1fr 28px 56px 28px;
+                align-items: center;
+                gap: 6px;
             }
 
-        .control-panel .size-btn {
-            width: 32px;
-            height: 32px;
-            border: 1px solid;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            .control-panel .size-label {
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--soft);
+            }
+
+            .control-panel .size-btn {
+                width: 28px;
+                height: 28px;
+                border: 1px solid var(--ctrl-border);
+                border-radius: 6px;
+                background: var(--ctrl-bg);
+                color: var(--label);
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+
+                .control-panel .size-btn:hover {
+                    background: var(--ctrl-hover);
+                }
+
+                .control-panel .size-btn:active {
+                    background: var(--ctrl-active);
+                }
+
+            .control-panel .size-input {
+                width: 100%;
+                height: 28px;
+                text-align: center;
+                font-size: 13px;
+                font-weight: 600;
+                border: 1px solid var(--ctrl-border);
+                border-radius: 6px;
+                background: var(--ctrl-bg);
+                color: var(--label);
+                -moz-appearance: textfield;
+                appearance: textfield;
+            }
+
+                .control-panel .size-input::-webkit-inner-spin-button,
+                .control-panel .size-input::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+            .control-panel .data-buttons {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 6px;
+            }
+
+                .control-panel .data-buttons .ui-btn {
+                    padding: 6px 4px;
+                    font-size: 12px;
+                }
+
+        /* ---- Окно редактирования кнопки ---- */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: var(--backdrop);
             display: flex;
             align-items: center;
             justify-content: center;
-            line-height: 1;
+            padding: 16px;
+            z-index: 1500;
         }
 
-        .control-panel .size-display {
-            font-size: 14px;
-            font-weight: 600;
-            min-width: 32px;
-            text-align: center;
-            transition: color 0.3s;
-        }
+            .modal-backdrop[hidden] {
+                display: none;
+            }
 
-        .theme-toggle-wrapper {
-            display: flex;
-            justify-content: center;
-            padding-top: 8px;
-            border-top: 1px solid transparent;
-            transition: border-color 0.3s;
-        }
-
-        body.light-theme .theme-toggle-wrapper {
-            border-top-color: #eef2f6;
-        }
-
-        body.dark-theme .theme-toggle-wrapper {
-            border-top-color: #2d2d44;
-        }
-
-        .theme-toggle {
-            padding: 6px 14px;
-            font-size: 13px;
-            font-weight: 500;
-            border: 1px solid;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        .modal {
             width: 100%;
+            max-width: 560px;
+            max-height: calc(100vh - 32px);
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--panel-border);
+            background: var(--panel-bg);
+            color: var(--text);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         }
+
+            .modal h2 {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--soft);
+        }
+
+            .field input,
+            .field textarea {
+                width: 100%;
+                padding: 8px 10px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.4;
+                border: 1px solid var(--ctrl-border);
+                border-radius: 6px;
+                background: var(--ctrl-bg);
+                color: var(--text);
+                resize: vertical;
+            }
+
+            .field .hint {
+                font-weight: 400;
+                color: var(--muted);
+            }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .modal-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+            .modal-actions .spacer {
+                flex: 1;
+            }
+
+            .modal-actions .ui-btn {
+                padding: 8px 14px;
+                font-size: 14px;
+            }
 
         .toast {
             position: fixed;
@@ -363,8 +584,9 @@
             border-radius: 6px;
             font-size: 17px;
             font-weight: 500;
+            background: var(--toast-bg);
+            color: var(--toast-text);
             opacity: 0;
-            transition: all 0.35s ease;
             pointer-events: none;
             z-index: 2000;
             transition: opacity 0.35s ease, transform 0.35s ease, background 0.3s, color 0.3s;
@@ -376,37 +598,18 @@
             }
 
         @media (max-width: 600px) {
-            .control-panel {
+            .settings {
                 top: 12px;
                 right: 12px;
-                padding: 10px 12px;
-                min-width: 110px;
             }
 
-                .control-panel .mode-group label {
-                    font-size: 12px;
-                }
-
-                .control-panel .size-btn {
-                    width: 28px;
-                    height: 28px;
-                    font-size: 16px;
-                }
-
-                .control-panel .size-display {
-                    font-size: 12px;
-                    min-width: 28px;
-                }
-
             .container {
-                padding: 24px 16px;
-                margin-top: 80px;
+                padding: 24px 0;
+                margin-top: 56px;
             }
 
             .copy-btn {
-                font-size: 15px;
                 padding: 12px 18px;
-                max-width: 100%;
             }
 
             .toast {
@@ -415,240 +618,158 @@
                 bottom: 24px;
                 white-space: nowrap;
             }
-
-            .theme-toggle {
-                font-size: 12px;
-                padding: 5px 10px;
-            }
         }
 
         @media (max-width: 420px) {
-            .control-panel {
-                top: 8px;
-                right: 8px;
-                padding: 8px 10px;
-                min-width: 90px;
-            }
-
-                .control-panel .mode-group label {
-                    font-size: 11px;
-                    gap: 5px;
-                }
-
-                .control-panel .mode-group input[type="radio"] {
-                    width: 14px;
-                    height: 14px;
-                }
-
-                .control-panel .size-btn {
-                    width: 24px;
-                    height: 24px;
-                    font-size: 14px;
-                }
-
-                .control-panel .size-display {
-                    font-size: 11px;
-                    min-width: 24px;
-                }
-
             .copy-btn {
-                font-size: 13px;
                 padding: 10px 14px;
             }
 
-            .theme-toggle {
-                font-size: 11px;
-                padding: 4px 8px;
+            .modal {
+                padding: 16px;
+            }
+
+            .field-row {
+                gap: 6px;
             }
         }
     </style>
 </head>
 <body class="light-theme">
 
-    <div class="control-panel" id="controlPanel">
-        <div class="panel-title">Режим названий</div>
+    <div class="settings">
+        <button class="gear-btn" id="gearBtn" type="button" title="Настройки" aria-label="Настройки" aria-expanded="false" aria-controls="controlPanel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+        </button>
 
-        <div class="mode-group">
-            <label>
-                <input type="radio" name="mode" value="short" checked />
-                Короткий
-            </label>
-            <label>
-                <input type="radio" name="mode" value="medium" />
-                Средний
-            </label>
-            <label>
-                <input type="radio" name="mode" value="full" />
-                Полный
-            </label>
-        </div>
+        <div class="control-panel" id="controlPanel" hidden>
+            <div class="panel-title">Режим названий</div>
 
-        <div class="size-group">
-            <span class="size-label">Размер</span>
-            <button class="size-btn" id="sizeDec" title="Уменьшить размер">−</button>
-            <span class="size-display" id="sizeDisplay">17</span>
-            <button class="size-btn" id="sizeInc" title="Увеличить размер">+</button>
-        </div>
+            <div class="mode-group">
+                <label>
+                    <input type="radio" name="mode" value="short" checked />
+                    Короткий
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="medium" />
+                    Средний
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="full" />
+                    Полный
+                </label>
+            </div>
 
-        <div class="theme-toggle-wrapper">
-            <button class="theme-toggle" id="themeToggle">🌙 Тёмная тема</button>
+            <div class="panel-section">
+                <div class="panel-title">Кнопки</div>
+
+                <div class="size-group">
+                    <span class="size-label">Шрифт</span>
+                    <button class="size-btn" id="fontDec" type="button" title="Уменьшить шрифт">−</button>
+                    <input class="size-input" id="fontInput" type="number" min="10" max="32" step="1" title="Размер шрифта, px" aria-label="Размер шрифта, px" />
+                    <button class="size-btn" id="fontInc" type="button" title="Увеличить шрифт">+</button>
+                </div>
+
+                <div class="size-group">
+                    <span class="size-label">Ширина</span>
+                    <button class="size-btn" id="widthDec" type="button" title="Уже">−</button>
+                    <input class="size-input" id="widthInput" type="number" min="150" max="1200" step="10" title="Ширина кнопок, px" aria-label="Ширина кнопок, px" />
+                    <button class="size-btn" id="widthInc" type="button" title="Шире">+</button>
+                </div>
+
+                <div class="size-group">
+                    <span class="size-label">Высота</span>
+                    <button class="size-btn" id="heightDec" type="button" title="Ниже">−</button>
+                    <input class="size-input" id="heightInput" type="number" min="0" max="400" step="5" title="Высота кнопок, px (0 — по тексту)" aria-label="Высота кнопок, px, 0 — по тексту" />
+                    <button class="size-btn" id="heightInc" type="button" title="Выше">+</button>
+                </div>
+
+                <button class="ui-btn" id="editToggle" type="button">✏️ Редактировать кнопки</button>
+                <button class="ui-btn" id="selectToggle" type="button">🔢 Перенумеровать кнопки</button>
+            </div>
+
+            <div class="panel-section">
+                <div class="panel-title">Данные</div>
+                <div class="data-buttons">
+                    <button class="ui-btn" id="exportBtn" type="button" title="Сохранить кнопки в файл">Экспорт</button>
+                    <button class="ui-btn" id="importBtn" type="button" title="Загрузить кнопки из файла">Импорт</button>
+                    <button class="ui-btn danger" id="resetBtn" type="button" title="Вернуть исходный набор кнопок">Сброс</button>
+                </div>
+                <input type="file" id="importFile" accept=".json,application/json" hidden />
+            </div>
+
+            <div class="panel-section">
+                <button class="ui-btn" id="themeToggle" type="button">🌙 Тёмная тема</button>
+            </div>
         </div>
     </div>
 
-    <div class="container" id="appContainer">
+    <div class="container mode-short" id="appContainer">
+        <div class="edit-banner banner-edit">
+            <span>Режим редактирования: нажмите на кнопку, чтобы изменить её. ↑ ↓ меняют порядок.</span>
+            <button class="ui-btn" type="button" data-action="add">➕ Добавить</button>
+            <button class="ui-btn primary" type="button" data-action="done">Готово</button>
+        </div>
 
-        <button class="copy-btn" data-copy="Не надо люто спамить. Не надо провоцировать на спам плюсами , иными символами или словами. Капсить и просить подарки тоже не стоит. Карается мутом. В крайнем случае баном.">
-            <span class="label-short">1. Спам.</span>
-            <span class="label-medium">1. Не надо люто спамить.</span>
-            <span class="label-full">1. Не надо люто спамить. Не надо провоцировать на спам плюсами , иными символами или словами. Капсить и просить подарки тоже не стоит. Карается мутом. В крайнем случае баном.</span>
-        </button>
+        <div class="edit-banner banner-select">
+            <span>Выделите кнопки — номера пойдут по порядку сверху вниз, начиная с наименьшего выбранного.</span>
+            <span class="select-count" id="selectCount">Выбрано: 0</span>
+            <button class="ui-btn" type="button" data-action="select-cancel">Отмена</button>
+            <button class="ui-btn primary" type="button" id="renumberBtn" data-action="renumber" disabled>Перенумеровать</button>
+        </div>
 
-        <button class="copy-btn" data-copy="Запрещён постинг любых ссылок. В том числе на клипы с текущего стрима. Карается мутом. За рекламу карается Баном.">
-            <span class="label-short">2. Ссылки</span>
-            <span class="label-medium">2. Запрещён постинг любых ссылок.</span>
-            <span class="label-full">2. Запрещён постинг любых ссылок. В том числе на клипы с текущего стрима. Карается мутом. За рекламу карается Баном.</span>
-        </button>
+        <div class="button-list" id="buttonList"></div>
+        <p class="empty-hint" id="emptyHint" hidden>Кнопок нет. Откройте ⚙ → «Редактировать кнопки», чтобы добавить.</p>
 
-        <button class="copy-btn" data-copy='Все вопросы "Где (Имя)?" "Когда стрим у (Имя)" "Сейчас на стриме у (Имя)"и тд." вы можете задать на их страницах. За спам карается мутом.'>
-            <span class="label-short">3. "Где (Имя)?" "Когда стрим у (Имя)" "Сейчас на стриме у (Имя)"и тд.</span>
-            <span class="label-medium">3. Все вопросы "Где (Имя)?" "Когда стрим у (Имя)" "Сейчас на стриме у (Имя)"и тд." вы можете задать на их страницах.</span>
-            <span class="label-full">3. Все вопросы "Где (Имя)?" "Когда стрим у (Имя)" "Сейчас на стриме у (Имя)"и тд." вы можете задать на их страницах. За спам карается мутом. </span>
-        </button>
+        <button class="add-btn" type="button" data-action="add">+ Добавить кнопку</button>
+    </div>
 
-        <button class="copy-btn" data-copy="Спойлеры к игре и просматриваемому контенту на стриме запрещены. Карается мутом.">
-            <span class="label-short">4. Спойлеры.</span>
-            <span class="label-medium">4. Спойлеры к игре и просматриваемому контенту на стриме запрещены.</span>
-            <span class="label-full">4. Спойлеры к игре и просматриваемому контенту на стриме запрещены. Карается мутом.</span>
-        </button>
+    <div class="modal-backdrop" id="editor" hidden>
+        <form class="modal" id="editorForm" role="dialog" aria-modal="true" aria-labelledby="editorTitle" autocomplete="off">
+            <h2 id="editorTitle">Редактирование кнопки</h2>
 
-        <button class="copy-btn" data-copy="Упоминание обходов блокировок запрещено. Карается мутом.">
-            <span class="label-short">5. VPN.</span>
-            <span class="label-medium">5. Упоминание обходов блокировок запрещено.</span>
-            <span class="label-full">5. Упоминание обходов блокировок запрещено. Карается мутом.</span>
-        </button>
+            <div class="field-row">
+                <label class="field">
+                    Номер
+                    <input name="num" type="text" maxlength="10" />
+                </label>
+                <label class="field">
+                    <span>Ширина, px <span class="hint">(пусто — общая)</span></span>
+                    <input name="width" type="number" min="0" max="1200" step="10" />
+                </label>
+                <label class="field">
+                    <span>Высота, px <span class="hint">(пусто — общая)</span></span>
+                    <input name="height" type="number" min="0" max="400" step="5" />
+                </label>
+            </div>
 
-        <button class="copy-btn" data-copy="Стример сам решает с кем коллабиться, и это зависит не только от него. Без вопроса от стримера, карается мутом. При игнорировании баном.">
-            <span class="label-short">6 Коллабы</span>
-            <span class="label-medium">6 Стример сам решает с кем коллабиться, и это зависит не только от него.</span>
-            <span class="label-full">6 Стример сам решает с кем коллабиться, и это зависит не только от него. Без вопроса от стримера, карается мутом. При игнорировании баном.</span>
-        </button>
+            <label class="field">
+                Короткое название
+                <input name="short" type="text" required />
+            </label>
+            <label class="field">
+                <span>Среднее название <span class="hint">(пусто — как короткое)</span></span>
+                <textarea name="medium" rows="2"></textarea>
+            </label>
+            <label class="field">
+                <span>Полное название <span class="hint">(пусто — как среднее)</span></span>
+                <textarea name="full" rows="3"></textarea>
+            </label>
+            <label class="field">
+                <span>Текст для копирования <span class="hint">(пусто — как полное название)</span></span>
+                <textarea name="copy" rows="4"></textarea>
+            </label>
 
-        <button class="copy-btn" data-copy="Стример не Играет / Ставит музыку / Смотрит Фильмы, Сериалы, Видео / Рейдит по заказу или запросу. Спамить не нужно. Карается мутом.">
-            <span class="label-short">7. Стример не Играет / Ставит музыку / Смотрит Фильмы, Сериалы, Видео / Рейдит по заказу или запросу.</span>
-            <span class="label-medium">7. Стример не Играет / Ставит музыку / Смотрит Фильмы, Сериалы, Видео / Рейдит по заказу или запросу.</span>
-            <span class="label-full">7. Стример не Играет / Ставит музыку / Смотрит Фильмы, Сериалы, Видео / Рейдит по заказу или запросу. Спамить не нужно. Карается мутом.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Стример не добавляет в друзья в Дискорде / ТГ / ВК / Стиме и не расписывается в нём. Спамить не нужно. Карается мутом. В крайнем случае баном.">
-            <span class="label-short">8. Стример не добавляет в друзья.</span>
-            <span class="label-medium">8. Стример не добавляет в друзья в Дискорде / ТГ / ВК / Стиме и не расписывается в нём. Спамить не нужно.</span>
-            <span class="label-full">8. Стример не добавляет в друзья в Дискорде / ТГ / ВК / Стиме и не расписывается в нём. Спамить не нужно. Карается мутом. В крайнем случае баном.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Стример не отвечает на вопросы личного характера (Имя, город и подобные.) за спам подобным карается мутом. При игнорировании карается баном.">
-            <span class="label-short">9. Вопросы личного характера.</span>
-            <span class="label-medium">9. Стример не отвечает на вопросы личного характера.</span>
-            <span class="label-full">9. Стример не отвечает на вопросы личного характера (Имя, город и подобные.) за спам подобным карается мутом. При игнорировании карается баном.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Стример не поёт песни по запросу, пока стример не спросил что петь, предложения не принимаются. Карается мутом. При игнорировании карается баном.">
-            <span class="label-short">10. Не поёт песни по запросу</span>
-            <span class="label-medium">10. Стример не поёт песни по запросу, пока стример не спросил что петь.</span>
-            <span class="label-full">10. Стример не поёт песни по запросу, пока стример не спросил что петь, предложения не принимаются. Карается мутом. При игнорировании карается баном.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Информация о коллабах находится в расписании в ТГ. Спам вопросами карается мутом. При игнорировании баном.">
-            <span class="label-short">11. Информация о коллабах</span>
-            <span class="label-medium">11. Информация о коллабах находится в расписании в ТГ.</span>
-            <span class="label-full">11. Информация о коллабах находится в расписании в ТГ. Спам вопросами карается мутом. При игнорировании баном.</span>
-        </button>
-
-
-        <button class="copy-btn" data-copy="Не упоминайте имена других стримеров в чате, если стример про них не говорит. Карается мутом. При игнорировании предупреждения баном">
-            <span class="label-short">12. Другие стримеры</span>
-            <span class="label-medium">12. Не упоминайте имена других стримеров в чате</span>
-            <span class="label-full">12. Не упоминайте имена других стримеров в чате, если стример про них не говорит. Карается мутом. При игнорировании предупреждения баном</span>
-        </button>
-
-
-        <button class="copy-btn" data-copy="Высказываться в оскорбительной, для других участников форме. Это касается и оскорблений в чате зрителей, модераторского состава и негативных высказываний в сторону стримера и тех кто играет с ним на стриме.  Карается мутом. В случае повторного нарушения карается Баном.">
-            <span class="label-short">13. Оскорбления чаттерсов</span>
-            <span class="label-medium">13. Высказываться в оскорбительной, для других участников форме. Это касается и оскорблений в чате зрителей, модераторского состава и негативных высказываний в сторону стримера и тех кто играет с ним на стриме.</span>
-            <span class="label-full">13. Высказываться в оскорбительной, для других участников форме. Это касается и оскорблений в чате зрителей, модераторского состава и негативных высказываний в сторону стримера и тех кто играет с ним на стриме.  Карается мутом. В случае повторного нарушения карается Баном.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="не спамь сейчас идет игра, отвечу за нее, все херня просто полив говном без предоставления хотя бы одного доказательства">
-            <span class="label-short">15. не спамь сейчас идет игра, отвечу за нее/span>
-            <span class="label-medium">15. не спамь сейчас идет игра, отвечу за нее</span>
-            <span class="label-full">15. не спамь сейчас идет игра, отвечу за нее, все херня просто полив говном без предоставления хотя бы одного доказательства</span>
-        </button> 
-
-        <button class="copy-btn" data-copy="Запрещено упоминание Религии/Политики/Военной тематики. Карается мутом. При повторном нарушении карается Баном.">
-            <span class="label-short">16. Религия/Политика/Военная тематика</span>
-            <span class="label-medium">16. Запрещено упоминание Религии/Политики/Военной тематики.</span>
-            <span class="label-full">16. Запрещено упоминание Религии/Политики/Военной тематики. Карается мутом. При повторном нарушении карается Баном.</span>
-        </button>
-
-        <button class="copy-btn" data-copy='Фразы на подобии: "Зайдите к (Имя)", "У (имя) сейчас на стриме", "Задонатьте/сделайте ставку у (имя)" и иные с похожим смыслом в чате запрещены. Вне коллаборации, с (Имя) стримером. Карается мутом.'>
-            <span class="label-short">18. Фразы: "Зайдите к (Имя)", "У (имя) сейчас на стриме"</span>
-            <span class="label-medium">18. Фразы на подобии: "Зайдите к (Имя)", "У (имя) сейчас на стриме", "Задонатьте/сделайте ставку у (имя)"</span>
-            <span class="label-full">18. Фразы на подобии: "Зайдите к (Имя)", "У (имя) сейчас на стриме", "Задонатьте/сделайте ставку у (имя)" и иные с похожим смыслом в чате запрещены. Вне коллаборации, с (Имя) стримером. Карается мутом.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="В чате общаются на языке указанном в ТЕГАХ. За чрезмерные нарушение карается мутом.">
-            <span class="label-short">20. Язык.</span>
-            <span class="label-medium">20. В чате общаются на языке указанном в ТЕГАХ.</span>
-            <span class="label-full">20. В чате общаются на языке указанном в ТЕГАХ. За чрезмерные нарушение карается мутом.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Ты нарушаешь правила твича, регистрация на нём разрешена с 14 лет. Если не хочешь заработать бан, забудь про свой возраст. Имей ввиду. Мы тебя уже увидели. И на карандаш ты попал.">
-            <span class="label-short">33. Нарушение правил Twitch (возраст)</span>
-            <span class="label-medium">33. Ты нарушаешь правила твича, регистрация на нём разрешена с 14 лет.</span>
-            <span class="label-full">33. Ты нарушаешь правила твича, регистрация на нём разрешена с 14 лет. Если не хочешь заработать бан, забудь про свой возраст. Имей ввиду. Мы тебя уже увидели. И на карандаш ты попал.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="(Имя) стример забанен на площадке. Обсуждение него запрещено. Карается мутом.">
-            <span class="label-short">34. Забанненый стример</span>
-            <span class="label-medium">34. (Имя) стример забанен на площадке.</span>
-            <span class="label-full">34. (Имя) стример забанен на площадке. Обсуждение него запрещено. Карается мутом.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Требуется сменить Аватар. Использована недопустимая символика.">
-            <span class="label-short">35. Аватарка</span>
-            <span class="label-medium">35. Требуется сменить Аватар.</span>
-            <span class="label-full">35. Требуется сменить Аватар. Использована недопустимая символика.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Требуется сменить Ник. Использованы запрещенные термины.">
-            <span class="label-short">36. Ник.</span>
-            <span class="label-medium">36. Требуется сменить Ник.</span>
-            <span class="label-full">36. Требуется сменить Ник. Использованы запрещенные термины.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Требуется сменить Ник и Аватар. Использованы запрещённые термины и символика">
-            <span class="label-short">37. Ник и Аватар.</span>
-            <span class="label-medium">37. Требуется сменить Ник и Аватар.</span>
-            <span class="label-full">37. Требуется сменить Ник и Аватар. Использованы запрещённые термины и символика</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Использованы запрещённые темы на твиче. Карается баном.">
-            <span class="label-short">38. Запрещённые темы.</span>
-            <span class="label-medium">38. Использованы запрещённые темы на твиче.</span>
-            <span class="label-full">38. Использованы запрещённые темы на твиче. Карается баном.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Использована запрещённая терминология на твиче. Карается баном.">
-            <span class="label-short">39. Запрещённая терминология на твиче.</span>
-            <span class="label-medium">39. Использована запрещённая терминология на твиче.</span>
-            <span class="label-full">39. Использована запрещённая терминология на твиче. Карается баном.</span>
-        </button>
-
-        <button class="copy-btn" data-copy="Вы оскорбили тюленя. Что является прямым оскорблением стримера. При повторном нарушении мут или бан в зависимости от тяжести нарушения.">
-            <span class="label-short">40. Оскробление тюленя</span>
-            <span class="label-medium">40. Вы оскорбили тюленя. Что является прямым оскорблением стримера.</span>
-            <span class="label-full">40. Вы оскорбили тюленя. Что является прямым оскорблением стримера. При повторном нарушении мут или бан в зависимости от тяжести нарушения.</span>
-        </button>
-
+            <div class="modal-actions">
+                <button class="ui-btn danger" id="editorDelete" type="button">Удалить</button>
+                <span class="spacer"></span>
+                <button class="ui-btn" id="editorCancel" type="button">Отмена</button>
+                <button class="ui-btn primary" type="submit">Сохранить</button>
+            </div>
+        </form>
     </div>
 
     <div class="toast" id="toast">Успешно скопировано!</div>
@@ -657,109 +778,80 @@
         (function () {
             'use strict';
 
+            // Исходный набор кнопок: используется при первом запуске и по кнопке «Сброс».
+            // Номер пишется отдельно и подставляется перед названием. Текст для копирования = полное название.
+            const DEFAULT_BUTTONS = [
+                { num: '1', short: 'Спам.', medium: 'Не надо люто спамить.', full: 'Не надо люто спамить. Не надо провоцировать на спам плюсами , иными символами или словами. Капсить и просить подарки тоже не стоит. Карается мутом. В крайнем случае баном.' },
+                { num: '2', short: 'Ссылки', medium: 'Запрещён постинг любых ссылок.', full: 'Запрещён постинг любых ссылок. В том числе на клипы с текущего стрима. Карается мутом. За рекламу карается Баном.' },
+                { num: '3', short: '"Где (Имя)?" "Когда стрим у (Имя)" "Сейчас на стриме у (Имя)"и тд.', medium: 'Все вопросы "Где (Имя)?" "Когда стрим у (Имя)" "Сейчас на стриме у (Имя)"и тд." вы можете задать на их страницах.', full: 'Все вопросы "Где (Имя)?" "Когда стрим у (Имя)" "Сейчас на стриме у (Имя)"и тд." вы можете задать на их страницах. За спам карается мутом.' },
+                { num: '4', short: 'Спойлеры.', medium: 'Спойлеры к игре и просматриваемому контенту на стриме запрещены.', full: 'Спойлеры к игре и просматриваемому контенту на стриме запрещены. Карается мутом.' },
+                { num: '5', short: 'VPN.', medium: 'Упоминание обходов блокировок запрещено.', full: 'Упоминание обходов блокировок запрещено. Карается мутом.' },
+                { num: '6', short: 'Коллабы', medium: 'Стример сам решает с кем коллабиться, и это зависит не только от него.', full: 'Стример сам решает с кем коллабиться, и это зависит не только от него. Без вопроса от стримера, карается мутом. При игнорировании баном.' },
+                { num: '7', short: 'Стример не Играет / Ставит музыку / Смотрит Фильмы, Сериалы, Видео / Рейдит по заказу или запросу.', medium: 'Стример не Играет / Ставит музыку / Смотрит Фильмы, Сериалы, Видео / Рейдит по заказу или запросу.', full: 'Стример не Играет / Ставит музыку / Смотрит Фильмы, Сериалы, Видео / Рейдит по заказу или запросу. Спамить не нужно. Карается мутом.' },
+                { num: '8', short: 'Стример не добавляет в друзья.', medium: 'Стример не добавляет в друзья в Дискорде / ТГ / ВК / Стиме и не расписывается в нём. Спамить не нужно.', full: 'Стример не добавляет в друзья в Дискорде / ТГ / ВК / Стиме и не расписывается в нём. Спамить не нужно. Карается мутом. В крайнем случае баном.' },
+                { num: '9', short: 'Вопросы личного характера.', medium: 'Стример не отвечает на вопросы личного характера.', full: 'Стример не отвечает на вопросы личного характера (Имя, город и подобные.) за спам подобным карается мутом. При игнорировании карается баном.' },
+                { num: '10', short: 'Не поёт песни по запросу', medium: 'Стример не поёт песни по запросу, пока стример не спросил что петь.', full: 'Стример не поёт песни по запросу, пока стример не спросил что петь, предложения не принимаются. Карается мутом. При игнорировании карается баном.' },
+                { num: '11', short: 'Информация о коллабах', medium: 'Информация о коллабах находится в расписании в ТГ.', full: 'Информация о коллабах находится в расписании в ТГ. Спам вопросами карается мутом. При игнорировании баном.' },
+                { num: '12', short: 'Другие стримеры', medium: 'Не упоминайте имена других стримеров в чате', full: 'Не упоминайте имена других стримеров в чате, если стример про них не говорит. Карается мутом. При игнорировании предупреждения баном' },
+                { num: '13', short: 'Оскорбления чаттерсов', medium: 'Высказываться в оскорбительной, для других участников форме. Это касается и оскорблений в чате зрителей, модераторского состава и негативных высказываний в сторону стримера и тех кто играет с ним на стриме.', full: 'Высказываться в оскорбительной, для других участников форме. Это касается и оскорблений в чате зрителей, модераторского состава и негативных высказываний в сторону стримера и тех кто играет с ним на стриме.  Карается мутом. В случае повторного нарушения карается Баном.' },
+                { num: '15', short: 'не спамь сейчас идет игра, отвечу за нее', medium: 'не спамь сейчас идет игра, отвечу за нее', full: 'не спамь сейчас идет игра, отвечу за нее, все херня просто полив говном без предоставления хотя бы одного доказательства' },
+                { num: '16', short: 'Религия/Политика/Военная тематика', medium: 'Запрещено упоминание Религии/Политики/Военной тематики.', full: 'Запрещено упоминание Религии/Политики/Военной тематики. Карается мутом. При повторном нарушении карается Баном.' },
+                { num: '18', short: 'Фразы: "Зайдите к (Имя)", "У (имя) сейчас на стриме"', medium: 'Фразы на подобии: "Зайдите к (Имя)", "У (имя) сейчас на стриме", "Задонатьте/сделайте ставку у (имя)"', full: 'Фразы на подобии: "Зайдите к (Имя)", "У (имя) сейчас на стриме", "Задонатьте/сделайте ставку у (имя)" и иные с похожим смыслом в чате запрещены. Вне коллаборации, с (Имя) стримером. Карается мутом.' },
+                { num: '20', short: 'Язык.', medium: 'В чате общаются на языке указанном в ТЕГАХ.', full: 'В чате общаются на языке указанном в ТЕГАХ. За чрезмерные нарушение карается мутом.' },
+                { num: '33', short: 'Нарушение правил Twitch (возраст)', medium: 'Ты нарушаешь правила твича, регистрация на нём разрешена с 14 лет.', full: 'Ты нарушаешь правила твича, регистрация на нём разрешена с 14 лет. Если не хочешь заработать бан, забудь про свой возраст. Имей ввиду. Мы тебя уже увидели. И на карандаш ты попал.' },
+                { num: '34', short: 'Забанненый стример', medium: '(Имя) стример забанен на площадке.', full: '(Имя) стример забанен на площадке. Обсуждение него запрещено. Карается мутом.' },
+                { num: '35', short: 'Аватарка', medium: 'Требуется сменить Аватар.', full: 'Требуется сменить Аватар. Использована недопустимая символика.' },
+                { num: '36', short: 'Ник.', medium: 'Требуется сменить Ник.', full: 'Требуется сменить Ник. Использованы запрещенные термины.' },
+                { num: '37', short: 'Ник и Аватар.', medium: 'Требуется сменить Ник и Аватар.', full: 'Требуется сменить Ник и Аватар. Использованы запрещённые термины и символика' },
+                { num: '38', short: 'Запрещённые темы.', medium: 'Использованы запрещённые темы на твиче.', full: 'Использованы запрещённые темы на твиче. Карается баном.' },
+                { num: '39', short: 'Запрещённая терминология на твиче.', medium: 'Использована запрещённая терминология на твиче.', full: 'Использована запрещённая терминология на твиче. Карается баном.' },
+                { num: '40', short: 'Оскробление тюленя', medium: 'Вы оскорбили тюленя. Что является прямым оскорблением стримера.', full: 'Вы оскорбили тюленя. Что является прямым оскорблением стримера. При повторном нарушении мут или бан в зависимости от тяжести нарушения.' }
+            ];
+
+            const KEYS = {
+                buttons: 'copyButtons',
+                mode: 'copyMode',
+                font: 'copyFontSize',
+                width: 'copyBtnWidth',
+                height: 'copyBtnHeight',
+                theme: 'theme',
+                panel: 'settingsOpen'
+            };
+
+            function load(key) {
+                try {
+                    return localStorage.getItem(key);
+                } catch (e) {
+                    return null;
+                }
+            }
+
+            function save(key, value) {
+                try {
+                    localStorage.setItem(key, value);
+                } catch (e) { /* ignore */ }
+            }
+
+            function forget(key) {
+                try {
+                    localStorage.removeItem(key);
+                } catch (e) { /* ignore */ }
+            }
+
             const container = document.getElementById('appContainer');
-            const radioButtons = document.querySelectorAll('input[name="mode"]');
+            const list = document.getElementById('buttonList');
+            const emptyHint = document.getElementById('emptyHint');
 
-            function applyMode(mode) {
-                container.classList.remove('mode-short', 'mode-medium', 'mode-full');
-                container.classList.add('mode-' + mode);
-                try {
-                    localStorage.setItem('copyMode', mode);
-                } catch (e) { /* ignore */ }
-            }
-
-            radioButtons.forEach(function (radio) {
-                radio.addEventListener('change', function () {
-                    if (this.checked) {
-                        applyMode(this.value);
-                    }
-                });
-            });
-
-            try {
-                const savedMode = localStorage.getItem('copyMode');
-                if (savedMode && ['short', 'medium', 'full'].includes(savedMode)) {
-                    const targetRadio = document.querySelector('input[name="mode"][value="' + savedMode + '"]');
-                    if (targetRadio) {
-                        targetRadio.checked = true;
-                        applyMode(savedMode);
-                    } else {
-                        const defaultRadio = document.querySelector('input[name="mode"][value="short"]');
-                        if (defaultRadio) {
-                            defaultRadio.checked = true;
-                            applyMode('short');
-                        }
-                    }
-                } else {
-                    const defaultRadio = document.querySelector('input[name="mode"][value="short"]');
-                    if (defaultRadio) {
-                        defaultRadio.checked = true;
-                        applyMode('short');
-                    }
-                }
-            } catch (e) {
-                const defaultRadio = document.querySelector('input[name="mode"][value="short"]');
-                if (defaultRadio) {
-                    defaultRadio.checked = true;
-                    applyMode('short');
-                }
-            }
-
-            const sizeDisplay = document.getElementById('sizeDisplay');
-            const sizeDec = document.getElementById('sizeDec');
-            const sizeInc = document.getElementById('sizeInc');
-            const allButtons = document.querySelectorAll('.copy-btn');
-
-            let currentSize = 17;
-            const MIN_SIZE = 10;
-            const MAX_SIZE = 32;
-
-            try {
-                const savedSize = localStorage.getItem('copyFontSize');
-                if (savedSize) {
-                    const parsed = parseInt(savedSize, 10);
-                    if (!isNaN(parsed) && parsed >= MIN_SIZE && parsed <= MAX_SIZE) {
-                        currentSize = parsed;
-                    }
-                }
-            } catch (e) { /* ignore */ }
-
-            function applyFontSize(size) {
-                allButtons.forEach(function (btn) {
-                    btn.style.fontSize = size + 'px';
-                });
-                sizeDisplay.textContent = size;
-                try {
-                    localStorage.setItem('copyFontSize', String(size));
-                } catch (e) { /* ignore */ }
-            }
-
-            sizeDec.addEventListener('click', function () {
-                if (currentSize > MIN_SIZE) {
-                    currentSize--;
-                    applyFontSize(currentSize);
-                }
-            });
-
-            sizeInc.addEventListener('click', function () {
-                if (currentSize < MAX_SIZE) {
-                    currentSize++;
-                    applyFontSize(currentSize);
-                }
-            });
-
-            applyFontSize(currentSize);
-
-            // ---- Копирование ----
-            const buttons = document.querySelectorAll('.copy-btn');
+            // ---- Уведомления ----
             const toast = document.getElementById('toast');
             let toastTimer = null;
 
-            function showToast() {
+            function showToast(text) {
                 if (toastTimer) {
                     clearTimeout(toastTimer);
                     toastTimer = null;
                 }
+                toast.textContent = text || 'Успешно скопировано!';
                 toast.classList.remove('show');
                 void toast.offsetWidth;
                 toast.classList.add('show');
@@ -769,6 +861,147 @@
                 }, 2000);
             }
 
+            // ---- Данные кнопок ----
+            function makeId() {
+                return 'b' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+            }
+
+            function asText(value) {
+                if (typeof value === 'string') return value;
+                if (typeof value === 'number') return String(value);
+                return '';
+            }
+
+            // Приводит запись к виду { id, num, short, medium, full, copy, width?, height? }
+            function normalizeItem(raw) {
+                if (!raw || typeof raw !== 'object') return null;
+
+                const item = {
+                    id: asText(raw.id) || makeId(),
+                    num: asText(raw.num).trim(),
+                    short: asText(raw.short).trim(),
+                    medium: asText(raw.medium).trim(),
+                    full: asText(raw.full).trim(),
+                    copy: asText(raw.copy).trim()
+                };
+
+                if (!item.copy) item.copy = item.full || item.medium || item.short;
+                if (!item.short) item.short = item.medium || item.full || item.copy;
+                if (!item.short) return null;
+
+                const width = parseInt(raw.width, 10);
+                const height = parseInt(raw.height, 10);
+                if (width > 0) item.width = width;
+                if (height > 0) item.height = height;
+
+                return item;
+            }
+
+            function normalizeList(raw) {
+                if (!Array.isArray(raw)) return null;
+                const seen = new Set();
+                return raw.map(normalizeItem).filter(Boolean).map(function (item) {
+                    if (seen.has(item.id)) item.id = makeId();
+                    seen.add(item.id);
+                    return item;
+                });
+            }
+
+            let items = null;
+            try {
+                items = normalizeList(JSON.parse(load(KEYS.buttons)));
+            } catch (e) { /* ignore */ }
+            if (!items) {
+                items = normalizeList(DEFAULT_BUTTONS);
+            }
+
+            function persist() {
+                save(KEYS.buttons, JSON.stringify(items));
+            }
+
+            function withNumber(item, text) {
+                return item.num ? item.num + '. ' + text : text;
+            }
+
+            function makeTool(action, text, title, disabled) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'tool-btn' + (action === 'delete' ? ' danger' : '');
+                btn.dataset.action = action;
+                btn.textContent = text;
+                btn.title = title;
+                btn.setAttribute('aria-label', title);
+                btn.disabled = !!disabled;
+                return btn;
+            }
+
+            function render() {
+                list.textContent = '';
+
+                items.forEach(function (item, index) {
+                    const row = document.createElement('div');
+                    row.className = 'btn-row';
+                    row.dataset.id = item.id;
+
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'copy-btn';
+                    [
+                        ['short', item.short],
+                        ['medium', item.medium || item.short],
+                        ['full', item.full || item.medium || item.short]
+                    ].forEach(function (pair) {
+                        const span = document.createElement('span');
+                        span.className = 'label-' + pair[0];
+                        span.textContent = withNumber(item, pair[1]);
+                        btn.appendChild(span);
+                    });
+                    if (item.width) btn.style.width = item.width + 'px';
+                    if (item.height) btn.style.minHeight = item.height + 'px';
+
+                    const tools = document.createElement('div');
+                    tools.className = 'row-tools';
+                    tools.appendChild(makeTool('up', '↑', 'Переместить вверх', index === 0));
+                    tools.appendChild(makeTool('edit', '✎', 'Редактировать'));
+                    tools.appendChild(makeTool('down', '↓', 'Переместить вниз', index === items.length - 1));
+                    tools.appendChild(makeTool('delete', '✕', 'Удалить'));
+
+                    row.appendChild(btn);
+                    row.appendChild(tools);
+                    list.appendChild(row);
+                });
+
+                emptyHint.hidden = items.length > 0;
+                updateSelectionUI();
+            }
+
+            function moveItem(index, step) {
+                const target = index + step;
+                if (target < 0 || target >= items.length) return;
+
+                const moved = items.splice(index, 1)[0];
+                items.splice(target, 0, moved);
+                persist();
+                render();
+
+                // Оставляем фокус на той же стрелке, чтобы можно было двигать кнопку дальше
+                const arrow = list.querySelector('[data-id="' + moved.id + '"] [data-action="' + (step < 0 ? 'up' : 'down') + '"]');
+                if (arrow && !arrow.disabled) {
+                    arrow.focus();
+                }
+            }
+
+            function deleteItem(index) {
+                const item = items[index];
+                if (!confirm('Удалить кнопку «' + withNumber(item, item.short) + '»?')) return;
+
+                items.splice(index, 1);
+                persist();
+                render();
+                showToast('Кнопка удалена');
+            }
+
+            // ---- Копирование ----
             function fallbackCopy(text) {
                 try {
                     const textarea = document.createElement('textarea');
@@ -787,26 +1020,435 @@
                 }
             }
 
-            buttons.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    const textToCopy = this.getAttribute('data-copy');
-                    if (!textToCopy) {
-                        return;
-                    }
+            function copyText(text) {
+                if (!text) return;
 
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(textToCopy)
-                            .then(function () {
-                                showToast();
-                            })
-                            .catch(function (err) {
-                                console.error('Ошибка копирования:', err);
-                                fallbackCopy(textToCopy);
-                            });
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text)
+                        .then(function () {
+                            showToast();
+                        })
+                        .catch(function (err) {
+                            console.error('Ошибка копирования:', err);
+                            fallbackCopy(text);
+                        });
+                } else {
+                    fallbackCopy(text);
+                }
+            }
+
+            list.addEventListener('click', function (e) {
+                const row = e.target.closest('.btn-row');
+                if (!row) return;
+
+                const index = items.findIndex(function (item) {
+                    return item.id === row.dataset.id;
+                });
+                if (index < 0) return;
+
+                const tool = e.target.closest('.tool-btn');
+                if (tool) {
+                    const action = tool.dataset.action;
+                    if (action === 'up') moveItem(index, -1);
+                    else if (action === 'down') moveItem(index, 1);
+                    else if (action === 'edit') openEditor(index);
+                    else if (action === 'delete') deleteItem(index);
+                    return;
+                }
+
+                if (e.target.closest('.copy-btn')) {
+                    if (selecting) {
+                        toggleSelected(items[index].id);
+                    } else if (editing) {
+                        openEditor(index);
                     } else {
-                        fallbackCopy(textToCopy);
+                        copyText(items[index].copy);
+                    }
+                }
+            });
+
+            // ---- Окно редактирования ----
+            const editor = document.getElementById('editor');
+            const form = document.getElementById('editorForm');
+            const editorTitle = document.getElementById('editorTitle');
+            const editorDelete = document.getElementById('editorDelete');
+            let editingIndex = -1; // -1 — новая кнопка
+
+            function nextNumber() {
+                let max = 0;
+                items.forEach(function (item) {
+                    const n = parseInt(item.num, 10);
+                    if (!isNaN(n) && n > max) max = n;
+                });
+                return String(max + 1);
+            }
+
+            function openEditor(index) {
+                editingIndex = index;
+                const item = index >= 0
+                    ? items[index]
+                    : { num: nextNumber(), short: '', medium: '', full: '', copy: '' };
+                const f = form.elements;
+
+                editorTitle.textContent = index >= 0 ? 'Редактирование кнопки' : 'Новая кнопка';
+                f.num.value = item.num;
+                f.width.value = item.width || '';
+                f.height.value = item.height || '';
+                f.short.value = item.short;
+                // Пустые поля показываем пустыми, если они совпадают с тем, что подставится автоматически
+                f.medium.value = item.medium === item.short ? '' : item.medium;
+                f.full.value = item.full === (item.medium || item.short) ? '' : item.full;
+                f.copy.value = item.copy === (item.full || item.medium || item.short) ? '' : item.copy;
+                editorDelete.hidden = index < 0;
+
+                editor.hidden = false;
+                f.short.focus();
+            }
+
+            function closeEditor() {
+                editor.hidden = true;
+                editingIndex = -1;
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const f = form.elements;
+                const isNew = editingIndex < 0;
+
+                const item = normalizeItem({
+                    id: isNew ? makeId() : items[editingIndex].id,
+                    num: f.num.value,
+                    short: f.short.value,
+                    medium: f.medium.value || f.short.value,
+                    full: f.full.value || f.medium.value || f.short.value,
+                    copy: f.copy.value,
+                    width: f.width.value,
+                    height: f.height.value
+                });
+                if (!item) return;
+
+                if (isNew) {
+                    items.push(item);
+                } else {
+                    items[editingIndex] = item;
+                }
+                persist();
+                render();
+                closeEditor();
+                showToast(isNew ? 'Кнопка добавлена' : 'Сохранено');
+
+                const row = list.querySelector('[data-id="' + item.id + '"]');
+                if (row) {
+                    row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+                }
+            });
+
+            document.getElementById('editorCancel').addEventListener('click', closeEditor);
+
+            editorDelete.addEventListener('click', function () {
+                const index = editingIndex;
+                closeEditor();
+                deleteItem(index);
+            });
+
+            // Закрываем по клику на затемнение, но не когда выделение текста закончилось за пределами окна
+            let backdropPressed = false;
+            editor.addEventListener('mousedown', function (e) {
+                backdropPressed = e.target === editor;
+            });
+            editor.addEventListener('click', function (e) {
+                if (e.target === editor && backdropPressed) closeEditor();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !editor.hidden) closeEditor();
+            });
+
+            // ---- Режим редактирования ----
+            const editToggle = document.getElementById('editToggle');
+            let editing = false;
+
+            function setEditing(on) {
+                if (on && selecting) setSelecting(false);
+                editing = on;
+                container.classList.toggle('editing', on);
+                editToggle.classList.toggle('active', on);
+                editToggle.textContent = on ? '✔ Закончить редактирование' : '✏️ Редактировать кнопки';
+            }
+
+            editToggle.addEventListener('click', function () {
+                setEditing(!editing);
+            });
+
+            // ---- Выбор кнопок и перенумерация ----
+            const selectToggle = document.getElementById('selectToggle');
+            const selectCount = document.getElementById('selectCount');
+            const renumberBtn = document.getElementById('renumberBtn');
+            const selected = new Set();
+            let selecting = false;
+
+            // Выбранные кнопки в том порядке, в каком они стоят на странице
+            function selectedItems() {
+                return items.filter(function (item) {
+                    return selected.has(item.id);
+                });
+            }
+
+            // Наименьший номер среди выбранных; если номеров нет — 1
+            function startNumber(chosen) {
+                let min = Infinity;
+                chosen.forEach(function (item) {
+                    const n = parseInt(item.num, 10);
+                    if (!isNaN(n) && n < min) min = n;
+                });
+                return min === Infinity ? 1 : min;
+            }
+
+            // Подсветка выбранных кнопок и подсказка с будущим номером
+            function updateSelectionUI() {
+                const chosen = selectedItems();
+                const start = startNumber(chosen);
+
+                // Убираем из выбора кнопки, которых больше нет (после сброса или импорта)
+                selected.clear();
+                chosen.forEach(function (item) {
+                    selected.add(item.id);
+                });
+
+                list.querySelectorAll('.btn-row').forEach(function (row) {
+                    const position = chosen.findIndex(function (item) {
+                        return item.id === row.dataset.id;
+                    });
+                    const btn = row.querySelector('.copy-btn');
+                    row.classList.toggle('selected', position >= 0);
+                    if (position >= 0) {
+                        btn.dataset.preview = '→ ' + (start + position);
+                    } else {
+                        delete btn.dataset.preview;
+                    }
+                    if (selecting) {
+                        btn.setAttribute('aria-pressed', String(position >= 0));
+                    } else {
+                        btn.removeAttribute('aria-pressed');
                     }
                 });
+
+                selectCount.textContent = 'Выбрано: ' + chosen.length;
+                renumberBtn.disabled = chosen.length === 0;
+            }
+
+            function toggleSelected(id) {
+                if (selected.has(id)) {
+                    selected.delete(id);
+                } else {
+                    selected.add(id);
+                }
+                updateSelectionUI();
+            }
+
+            function setSelecting(on) {
+                if (on && editing) setEditing(false);
+                selecting = on;
+                if (!on) selected.clear();
+                container.classList.toggle('selecting', on);
+                selectToggle.classList.toggle('active', on);
+                selectToggle.textContent = on ? '✔ Закончить выбор' : '🔢 Перенумеровать кнопки';
+                updateSelectionUI();
+            }
+
+            function renumber() {
+                const chosen = selectedItems();
+                if (!chosen.length) return;
+
+                const start = startNumber(chosen);
+                const changes = [];
+                chosen.forEach(function (item, i) {
+                    const to = String(start + i);
+                    if (item.num !== to) {
+                        changes.push({ item: item, to: to });
+                    }
+                });
+
+                if (!changes.length) {
+                    showToast('Номера уже по порядку');
+                    setSelecting(false);
+                    return;
+                }
+
+                const lines = changes.slice(0, 15).map(function (change) {
+                    const name = change.item.short.length > 40 ? change.item.short.slice(0, 40) + '…' : change.item.short;
+                    return (change.item.num || 'без номера') + ' → ' + change.to + '   ' + name;
+                });
+                if (changes.length > 15) {
+                    lines.push('…и ещё ' + (changes.length - 15));
+                }
+                if (!confirm('Изменить номера у ' + changes.length + ' кнопок?\n\n' + lines.join('\n'))) return;
+
+                changes.forEach(function (change) {
+                    change.item.num = change.to;
+                });
+                persist();
+                setSelecting(false);
+                render();
+                showToast('Номера изменены');
+            }
+
+            selectToggle.addEventListener('click', function () {
+                setSelecting(!selecting);
+            });
+
+            container.addEventListener('click', function (e) {
+                const target = e.target.closest('[data-action]');
+                if (!target || target.closest('.btn-row')) return;
+
+                const action = target.dataset.action;
+                if (action === 'add') openEditor(-1);
+                else if (action === 'done') setEditing(false);
+                else if (action === 'select-cancel') setSelecting(false);
+                else if (action === 'renumber') renumber();
+            });
+
+            // ---- Режим названий ----
+            const MODES = ['short', 'medium', 'full'];
+
+            function applyMode(mode) {
+                container.classList.remove('mode-short', 'mode-medium', 'mode-full');
+                container.classList.add('mode-' + mode);
+                save(KEYS.mode, mode);
+            }
+
+            document.querySelectorAll('input[name="mode"]').forEach(function (radio) {
+                radio.addEventListener('change', function () {
+                    if (this.checked) {
+                        applyMode(this.value);
+                    }
+                });
+            });
+
+            let savedMode = load(KEYS.mode);
+            if (MODES.indexOf(savedMode) < 0) savedMode = 'short';
+            document.querySelector('input[name="mode"][value="' + savedMode + '"]').checked = true;
+            applyMode(savedMode);
+
+            // ---- Шрифт, ширина, высота ----
+            // Значение можно менять кнопками − / + или вписать вручную (применяется по Enter или при уходе из поля)
+            function setupNumberControl(name, storageKey, defaultValue, cssVar) {
+                const input = document.getElementById(name + 'Input');
+                const min = Number(input.min);
+                const max = Number(input.max);
+                const step = Number(input.step);
+                let value = defaultValue;
+
+                function clamp(v) {
+                    return Math.min(max, Math.max(min, v));
+                }
+
+                function set(v) {
+                    value = clamp(Math.round(v));
+                    input.value = value;
+                    container.style.setProperty(cssVar, value + 'px');
+                    save(storageKey, String(value));
+                }
+
+                const saved = parseInt(load(storageKey), 10);
+                if (!isNaN(saved)) value = saved;
+
+                document.getElementById(name + 'Dec').addEventListener('click', function () {
+                    set(value - step);
+                });
+                document.getElementById(name + 'Inc').addEventListener('click', function () {
+                    set(value + step);
+                });
+                input.addEventListener('change', function () {
+                    const v = parseInt(input.value, 10);
+                    if (isNaN(v)) {
+                        input.value = value;
+                    } else {
+                        set(v);
+                    }
+                });
+                input.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') input.blur();
+                });
+
+                set(value);
+            }
+
+            setupNumberControl('font', KEYS.font, 17, '--btn-font');
+            setupNumberControl('width', KEYS.width, 500, '--btn-width');
+            setupNumberControl('height', KEYS.height, 0, '--btn-height');
+
+            // ---- Шестерёнка ----
+            const gearBtn = document.getElementById('gearBtn');
+            const controlPanel = document.getElementById('controlPanel');
+
+            function setPanelOpen(open) {
+                controlPanel.hidden = !open;
+                gearBtn.setAttribute('aria-expanded', String(open));
+                save(KEYS.panel, open ? '1' : '0');
+            }
+
+            gearBtn.addEventListener('click', function () {
+                setPanelOpen(controlPanel.hidden);
+            });
+
+            setPanelOpen(load(KEYS.panel) === '1');
+
+            // ---- Экспорт / импорт / сброс ----
+            document.getElementById('exportBtn').addEventListener('click', function () {
+                const blob = new Blob([JSON.stringify(items, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'copysite-buttons.json';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                setTimeout(function () {
+                    URL.revokeObjectURL(url);
+                }, 1000);
+            });
+
+            const importFile = document.getElementById('importFile');
+
+            document.getElementById('importBtn').addEventListener('click', function () {
+                importFile.click();
+            });
+
+            importFile.addEventListener('change', function () {
+                const file = importFile.files && importFile.files[0];
+                importFile.value = '';
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = function () {
+                    let imported = null;
+                    try {
+                        const data = JSON.parse(String(reader.result));
+                        imported = normalizeList(Array.isArray(data) ? data : data && data.buttons);
+                    } catch (e) { /* ignore */ }
+
+                    if (!imported || imported.length === 0) {
+                        showToast('В файле нет кнопок');
+                        return;
+                    }
+                    if (!confirm('Заменить текущие кнопки (' + items.length + ') кнопками из файла (' + imported.length + ')?')) return;
+
+                    items = imported;
+                    persist();
+                    render();
+                    showToast('Кнопки загружены');
+                };
+                reader.readAsText(file);
+            });
+
+            document.getElementById('resetBtn').addEventListener('click', function () {
+                if (!confirm('Вернуть исходный набор кнопок? Все ваши изменения кнопок будут потеряны.')) return;
+
+                forget(KEYS.buttons);
+                items = normalizeList(DEFAULT_BUTTONS);
+                render();
+                showToast('Кнопки сброшены');
             });
 
             // ---- Переключение темы ----
@@ -816,42 +1458,18 @@
             function applyTheme(theme) {
                 body.classList.remove('light-theme', 'dark-theme');
                 body.classList.add(theme);
-
-                if (theme === 'dark-theme') {
-                    themeToggle.textContent = '☀️ Светлая тема';
-                } else {
-                    themeToggle.textContent = '🌙 Тёмная тема';
-                }
-
-                try {
-                    localStorage.setItem('theme', theme);
-                } catch (e) { /* ignore */ }
+                themeToggle.textContent = theme === 'dark-theme' ? '☀️ Светлая тема' : '🌙 Тёмная тема';
+                save(KEYS.theme, theme);
             }
 
-            try {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme && (savedTheme === 'light-theme' || savedTheme === 'dark-theme')) {
-                    applyTheme(savedTheme);
-                } else {
-                    // По умолчанию светлая тема, если в системе тёмная - можно раскомментировать строку ниже
-                    // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    //     applyTheme('dark-theme');
-                    // } else {
-                    applyTheme('light-theme');
-                    // }
-                }
-            } catch (e) {
-                applyTheme('light-theme');
-            }
+            const savedTheme = load(KEYS.theme);
+            applyTheme(savedTheme === 'dark-theme' ? 'dark-theme' : 'light-theme');
 
             themeToggle.addEventListener('click', function () {
-                if (body.classList.contains('light-theme')) {
-                    applyTheme('dark-theme');
-                } else {
-                    applyTheme('light-theme');
-                }
+                applyTheme(body.classList.contains('light-theme') ? 'dark-theme' : 'light-theme');
             });
 
+            render();
         })();
     </script>
 
